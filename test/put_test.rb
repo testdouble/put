@@ -30,7 +30,7 @@ class PutTest < Minitest::Test
         Put.desc(golfer.age, nils_first: true),
         Put.nils_last(golfer.handicap),
         Put.asc(golfer.name),
-        Put.anywhere(seed: 42)
+        Put.anywhere(seed: 45)
       ]
     }
 

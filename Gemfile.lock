@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    put (0.0.2)
+    put (0.1.0)
 
 GEM
   remote: https://rubygems.org/

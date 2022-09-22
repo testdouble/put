@@ -11,7 +11,8 @@ people = [
   Person.new(name: "Tam", age: 22),
   Person.new(name: "Zak", age: 33),
   Person.new(name: "Axe", age: 33),
-  Person.new(name: "Qin", age: 18, rubyist?: true)
+  Person.new(name: "Qin", age: 18, rubyist?: true),
+  Person.new(name: "Zoe", age: 28, rubyist?: true)
 ]
 
 puts people.sort_by { |person|

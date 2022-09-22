@@ -31,7 +31,7 @@ class PutTest < Minitest::Test
         (Put.last if golfer.minor?),
         (Put.first if golfer.member),
         Put.desc(golfer.age, nils_first: true),
-        Put.asc(golfer.name, nils_first: false)
+        Put.asc(golfer.name)
       ]
     }
 

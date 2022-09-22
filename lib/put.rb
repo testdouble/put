@@ -1,3 +1,4 @@
+require_relative "put/debug"
 require_relative "put/version"
 require_relative "put/nil_ext"
 require_relative "put/puts_thing"
@@ -22,5 +23,9 @@ module Put
 
   def self.asc(value, nils_first: false)
     PutsThing::Ascending.new(value, nils_first: nils_first)
+  end
+
+  def self.debug(sorting_arrays)
+    Debug.new.call(sorting_arrays)
   end
 end

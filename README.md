@@ -1,4 +1,4 @@
-# Put - put your things in order 💎
+# Put - put your objects in order 💎
 
 Put pairs with
 [Enumerable#sort_by](https://ruby-doc.org/core-3.1.2/Enumerable.html#method-i-sort_by)

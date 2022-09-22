@@ -4,4 +4,68 @@ require "bundler/setup"
 require "debug"
 require "put"
 
-binding.debugger
+# README example code
+Person = Struct.new(:name, :age, :rubyist?, keyword_init: true)
+
+people = [
+  Person.new(name: "Tam", age: 22),
+  Person.new(name: "Zak", age: 33),
+  Person.new(name: "Axe", age: 33),
+  Person.new(name: "Qin", age: 18, rubyist?: true)
+]
+
+puts people.sort_by { |person|
+  [
+    person.rubyist? ? 0 : 1,
+    person.age * -1,
+    person.name
+  ]
+}
+
+puts people.sort_by { |person|
+  [
+    (Put.first if person.rubyist?),
+    Put.desc(person.age),
+    Put.asc(person.name)
+  ]
+}
+
+puts [42, 12, 65, 99, 49].sort_by { |n|
+  [(Put.first if n.odd?)]
+}
+
+puts %w[Jin drinks Gin on Gym day].sort_by { |s|
+  [(Put.last unless s.match?(/[A-Z]/))]
+} # => ["Jin", "Gin", "Gym", "drinks", "on", "day"]
+
+puts %w[The quick brown fox].sort_by { |s|
+  [Put.asc(s)]
+} # => ["The", "brown", "fox", "quick"]
+
+puts [3, nil, 1, 5].sort_by { |n|
+  [Put.asc(n, nils_first: true)]
+} # => [nil, 1, 3, 5]
+
+puts %w[Aardvark Zebra].sort_by { |s|
+  [Put.desc(s)]
+} # => ["Zebra", "Aardvark"]
+
+puts [1, nil, 2, 3].sort_by { |n|
+  [Put.desc(n, nils_first: true)]
+} # => [nil, 3, 2, 1]
+
+puts [1, 3, 4, 7, 8, 9].sort_by { |n|
+  [
+    (Put.first if n.even?),
+    Put.anywhere
+  ]
+} # => [8, 4, 1, 7, 9, 3]
+
+puts [:fun, :stuff, nil, :here].sort_by { |val|
+  [Put.nils_first(val)]
+} # => [nil, :fun, :stuff, :here]
+
+puts [:every, nil, :counts].sort_by { |val|
+  [Put.nils_last(val)]
+} # => [:every, :counts, nil]
+# binding.debugger

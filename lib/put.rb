@@ -1,6 +1,11 @@
 require_relative "put/version"
 require_relative "put/nil_ext"
 require_relative "put/puts_thing"
+require_relative "put/puts_thing/first"
+require_relative "put/puts_thing/last"
+require_relative "put/puts_thing/in_order"
+require_relative "put/puts_thing/ascending"
+require_relative "put/puts_thing/descending"
 
 module Put
   def self.first

@@ -2,6 +2,7 @@ require_relative "put/debug"
 require_relative "put/version"
 require_relative "put/nil_ext"
 require_relative "put/puts_thing"
+require_relative "put/puts_thing/anywhere"
 require_relative "put/puts_thing/first"
 require_relative "put/puts_thing/last"
 require_relative "put/puts_thing/in_order"
@@ -23,6 +24,10 @@ module Put
 
   def self.asc(value, nils_first: false)
     PutsThing::Ascending.new(value, nils_first: nils_first)
+  end
+
+  def self.anywhere(seed: nil)
+    PutsThing::Anywhere.new(seed)
   end
 
   def self.debug(sorting_arrays)

@@ -30,7 +30,7 @@ class PutTest < Minitest::Test
         Put.desc(golfer.age, nils_first: true),
         Put.nils_last(golfer.handicap),
         Put.asc(golfer.name),
-        Put.anywhere(seed: 45)
+        Put.anywhere
       ]
     }
 
@@ -42,10 +42,10 @@ class PutTest < Minitest::Test
       nate,
       tom,
       nill,
-      tam,
-      noah2,
-      noah
-    ], result)
+      tam
+    ], result.first(8))
+    assert_includes result.last(2), noah
+    assert_includes result.last(2), noah2
   end
 
   Bot = Struct.new(:model, :age, keyword_init: true)

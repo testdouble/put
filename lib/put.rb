@@ -8,6 +8,9 @@ require_relative "put/puts_thing/last"
 require_relative "put/puts_thing/in_order"
 require_relative "put/puts_thing/ascending"
 require_relative "put/puts_thing/descending"
+require_relative "put/puts_thing/nil_order"
+require_relative "put/puts_thing/nils_first"
+require_relative "put/puts_thing/nils_last"
 
 module Put
   def self.first
@@ -24,6 +27,14 @@ module Put
 
   def self.asc(value, nils_first: false)
     PutsThing::Ascending.new(value, nils_first: nils_first)
+  end
+
+  def self.nils_first(value)
+    PutsThing::NilsFirst.new(value)
+  end
+
+  def self.nils_last(value)
+    PutsThing::NilsLast.new(value)
   end
 
   def self.anywhere(seed: nil)

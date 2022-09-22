@@ -15,6 +15,8 @@ class PutTest < Minitest::Test
       eve = Golfer.new(name: "Eve", age: 42, handicap: 8, member: true),
       nate = Golfer.new(name: "Nate", age: 31, handicap: 12, member: false),
       logan = Golfer.new(name: "Logan", age: 31, handicap: 14, member: false),
+      tam = Golfer.new(name: "Tam", age: 31, handicap: nil, member: false),
+      tom = Golfer.new(name: "Tom", age: 31, handicap: 33, member: false),
       noah2 = Golfer.new(name: "Noah", age: 13, handicap: 16, member: true),
       harper = Golfer.new(name: "Harper", age: 32, handicap: 22, member: false),
       nill = Golfer.new(name: nil, age: 31, handicap: 18, member: false),
@@ -26,6 +28,7 @@ class PutTest < Minitest::Test
         (Put.last if golfer.minor?),
         (Put.first if golfer.member),
         Put.desc(golfer.age, nils_first: true),
+        Put.nils_last(golfer.handicap),
         Put.asc(golfer.name),
         Put.anywhere(seed: 42)
       ]
@@ -37,9 +40,11 @@ class PutTest < Minitest::Test
       harper,
       logan,
       nate,
+      tom,
       nill,
-      noah,
-      noah2
+      tam,
+      noah2,
+      noah
     ], result)
   end
 

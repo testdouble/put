@@ -20,8 +20,8 @@ Of course after you push Put, your colleagues will wonder why you put Put there.
 A neat trick when applying complex sorting rules to a collection is to map them
 to an array of arrays of comparable values in priority order. It's a common
 approach (and a special subtype of what's called a [Schwartzian
-transform](https://en.wikipedia.org/wiki/Schwartzian_transform)), but this
-pattern doesn't have an widely-accepted name yet, so let's use code to explain.
+transform](https://en.wikipedia.org/wiki/Schwartzian_transform)), but the
+pattern doesn't have a widely-accepted name yet, so let's use code to explain.
 
 Suppose you have some people:
 
@@ -68,7 +68,7 @@ is almost begging for a code comment above it to explain its intent
 number](https://en.wikipedia.org/wiki/Magic_number_(programming))'s like `1` and
 `0`.
 * Any `nil` values will result in a bad time. If a person's `age` is nil, you'll
-get "_undefined method `*' for nil:NilClass_" `NoMethodError`
+get "_undefined method '*' for nil:NilClass_" `NoMethodError`
 * Relatedly, if any two items aren't comparable (e.g. `<=>` returns nil), you'll
   be greeted with an inscrutable `ArgumentError` that just says "_comparison of
   Array with Array failed_"

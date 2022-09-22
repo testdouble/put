@@ -40,29 +40,4 @@ class PutTest < Minitest::Test
     ], result)
   end
 
-  def test_asc_nils_first
-    assert_equal([
-      Put.asc("B", nils_first: true),
-      Put.asc(nil, nils_first: true),
-      Put.asc("A", nils_first: true),
-      Put.asc(nil, nils_first: true)
-    ].sort.map(&:value), [
-      nil, nil, "A", "B"
-    ])
   end
-
-  def test_asc_nils_last
-    assert_equal([
-      nil,
-      Put.asc("B", nils_first: false),
-      nil,
-      Put.asc(nil, nils_first: false),
-      nil,
-      Put.asc("A", nils_first: false),
-      nil,
-      Put.asc(nil, nils_first: false)
-    ].sort.map { |o| o.respond_to?(:value) ? o.value : o }, [
-      "A", "B", nil, nil, nil, nil, nil, nil
-    ])
-  end
-end

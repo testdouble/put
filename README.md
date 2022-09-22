@@ -69,7 +69,7 @@ number](https://en.wikipedia.org/wiki/Magic_number_(programming))'s like `1` and
 `0`.
 * Any `nil` values will result in a bad time. If a person's `age` is nil, you'll
 get "_undefined method '*' for nil:NilClass_" `NoMethodError`
-* Relatedly, if any two items aren't comparable (e.g. `<=>` returns nil), you'll
+* Relatedly, if any two items aren't comparable (i.e. `<=>` returns nil), you'll
   be greeted with an inscrutable `ArgumentError` that just says "_comparison of
   Array with Array failed_"
 
@@ -95,8 +95,8 @@ The Put gem solves every one of the above issues:
   impenetrable `ArgumentError` messages whenever any two values turn out not to
   be comparable
 
-After reading this, your teammates are sure be glad they put you in charge of
-putting little gems like Put in the Gemfile.
+After reading this, your teammates will be glad they put you in charge of
+putting gems like Put in the Gemfile.
 
 ## When you Put it that way
 
@@ -116,8 +116,8 @@ either `Put.first` or `nil`, like this:
 
 ### Put.last
 
-When items that meet a certain condition should go to the bottom of the list,
-you can do the same sort of conditional expression with `Put.last`:
+When a sort criteria should go to the bottom of the list, you can do the same
+sort of conditional expression with `Put.last`:
 
 ```ruby
 %w[Jin drinks Gin on Gym day].sort_by { |s|

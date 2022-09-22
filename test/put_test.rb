@@ -18,12 +18,6 @@ class PutTest < Minitest::Test
       harper = Golfer.new(name: "Harper", age: 32, handicap: 22, member: false),
       nill = Golfer.new(name: nil, age: 31, handicap: 18, member: false),
       avery = Golfer.new(name: "Avery", age: nil, handicap: 0, member: true)
-      # jaden = Golfer.new(name: "Jaden", age: 13, handicap: 18, member: true),
-      # arden = Golfer.new(name: "Arden", age: 13, handicap: 18, member: true),
-      # dakota = Golfer.new(name: "Dakota", age: 13, handicap: 18, member: true),
-      # finley = Golfer.new(name: "Finley", age: 13, handicap: 18, member: true),
-      # hayden = Golfer.new(name: "Hayden", age: 13, handicap: 18, member: true),
-      # lennox = Golfer.new(name: "Lennox", age: 13, handicap: 18, member: true)
     ]
 
     result = golfers.sort_by { |golfer|

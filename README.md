@@ -5,7 +5,7 @@ Put pairs with
 to provide a more expressive, fault-tolerant, and configurable approach to
 sorting Ruby objects with multiple criteria.
 
-# Put "put" in your Gemfile
+## Put "put" in your Gemfile
 
 You've probably already put a few gems in there, so why not put Put, too:
 

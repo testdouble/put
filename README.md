@@ -1,11 +1,11 @@
-# Put - put your objects in order 💎
+# Put puts your objects in order 💎
 
 Put pairs with
 [Enumerable#sort_by](https://ruby-doc.org/core-3.1.2/Enumerable.html#method-i-sort_by)
 to provide a more expressive, fault-tolerant, and configurable approach to
 sorting Ruby objects with multiple criteria.
 
-# First, put Put in your Gemfile
+# Put "put" in your Gemfile
 
 You've probably already put a few gems in there, so why not put Put, too:
 

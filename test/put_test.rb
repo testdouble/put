@@ -97,7 +97,7 @@ class PutTest < Minitest::Test
     assert_equal "Sorting comparator at index 1 failed, because items at indices 1 and 2 were not comparable. Their values were `\"Y\"' and `3', respectively.", y_and_3.inspect
   end
 
-  def test_oldest
+  def test_alias
     golfers = [
       noah = Golfer.new(name: "Noah", age: 13, handicap: 18, last_round_played: Time.parse("2022-8-15")),
       eve = Golfer.new(name: "Eve", age: 42, handicap: 8, last_round_played: Time.parse("2022-8-15")),
@@ -129,7 +129,7 @@ class PutTest < Minitest::Test
       harper,
       avery,
       nill,
-      noah2,
+      noah2
     ], result)
   end
 end

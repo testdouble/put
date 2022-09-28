@@ -55,5 +55,6 @@ module Put
 
   class << self
     alias_method :smallest,  :asc
+    alias_method :earliest,  :asc
   end
 end

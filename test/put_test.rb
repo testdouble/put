@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PutTest < Minitest::Test
-  Golfer = Struct.new(:name, :age, :handicap, :member, keyword_init: true) {
+  Golfer = Struct.new(:name, :age, :handicap, :member, :last_round_played, keyword_init: true) {
     def minor?
       return if age.nil?
 
@@ -95,5 +95,41 @@ class PutTest < Minitest::Test
     assert_equal "Sorting comparator at index 1 failed, because items at indices 0 and 2 were not comparable. Their values were `\"X\"' and `3', respectively.", x_and_3.inspect
     # Same goes for the comparison of "Y" and 3:
     assert_equal "Sorting comparator at index 1 failed, because items at indices 1 and 2 were not comparable. Their values were `\"Y\"' and `3', respectively.", y_and_3.inspect
+  end
+
+  def test_oldest
+    golfers = [
+      noah = Golfer.new(name: "Noah", age: 13, handicap: 18, last_round_played: Time.parse("2022-8-15")),
+      eve = Golfer.new(name: "Eve", age: 42, handicap: 8, last_round_played: Time.parse("2022-8-15")),
+      nate = Golfer.new(name: "Nate", age: 31, handicap: 12, last_round_played: Time.parse("2022-8-15")),
+      logan = Golfer.new(name: "Logan", age: 31, handicap: 14, last_round_played: Time.parse("2022-8-15")),
+      tam = Golfer.new(name: "Tam", age: 31, handicap: nil, last_round_played: Time.parse("2012-1-15")),
+      tom = Golfer.new(name: "Tom", age: 31, handicap: 33, last_round_played: Time.parse("2019-3-7")),
+      noah2 = Golfer.new(name: "Noah", age: 13, handicap: 16, last_round_played: nil),
+      harper = Golfer.new(name: "Harper", age: 32, handicap: 22, last_round_played: Time.parse("2022-9-13")),
+      nill = Golfer.new(name: nil, age: 31, handicap: 18, last_round_played: nil),
+      avery = Golfer.new(name: "Avery", age: nil, handicap: 0, last_round_played: nil)
+    ]
+
+    result = golfers.sort_by { |golfer|
+      [
+        Put.oldest(golfer.last_round_played),
+        Put.oldest(golfer.age, nils_first: true),
+        Put.smallest(golfer.handicap)
+      ]
+    }
+
+    assert_equal([
+      tam,
+      tom,
+      eve,
+      nate,
+      logan,
+      noah,
+      harper,
+      avery,
+      nill,
+      noah2,
+    ], result)
   end
 end

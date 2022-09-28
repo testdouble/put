@@ -44,4 +44,16 @@ module Put
   def self.debug(sorting_arrays)
     Debug.new.call(sorting_arrays)
   end
+
+  def self.oldest(value, nils_first: false)
+    if value.respond_to?(:strftime)
+      asc(value, nils_first: nils_first)
+    else
+      desc(value, nils_first: nils_first)
+    end
+  end
+
+  class << self
+    alias_method :smallest,  :asc
+  end
 end

@@ -212,6 +212,62 @@ to `Put.debug`.
 For an interactive example of how to debug this issue with `Put.debug`, take a
 look [at this test case](/test/put_test.rb#L53-L98).
 
+## Put the Rubyism In It
+
+Like any good gem, we want to be as expressive as possible.
+So why not put your things in order, semantically?
+These helpful aliases may help your code express itself.
+
+### Put.oldest
+
+Oldest is a funny word. If we're talking about who is oldest at the birthday party:
+```ruby
+[3, 2, 5].sort_by { |val|
+  [Put.oldest(val)]
+} # => [5, 3, 2]
+```
+
+If we're talking about the oldest appointment on record:
+```ruby
+[Time.parse("2022-09-10"), Time.parse("2023-01-15"), Time.parse("1900-01-01")].sort_by { |val|
+  [Put.oldest(val)]
+} # => ["1900-01-01", "2022-09-10", "2023-01-15"]
+```
+
+Funny enough, the `earlist` time is the same as the `oldest` time.
+
+### Put.smallest / .earliest / .youngest / .nearest
+
+All work as `Put.asc` does!
+
+```ruby
+[{size: 20}, {size: 5}, {size: 15}].sort_by { |val|
+  [Put.smallest(val.size)]
+} # => [{size: 5}, {size: 15}, {size: 20}]
+```
+
+```ruby
+[3, 2, 5].sort_by { |val|
+  [Put.youngest(val)]
+} # => [2, 3, 5]
+```
+
+### Put.largest / .furthest
+
+Help us in place of `Put.desc`
+
+```ruby
+[{size: 5}, {size: 20}, {size: 15}].sort_by { |val|
+  [Put.largest(val.size)]
+} # => [{size: 20}, {size: 15}, {size: 5}]
+```
+
+```ruby
+[{distance: 5}, {distance: 20}, {distance: 15}].sort_by { |val|
+  [Put.furthest(val.distance)]
+} # => [{distance: 20}, {distance: 15}, {distance: 5}]
+```
+
 ## Put your hands together! 👏
 
 Many thanks to [Matt Jones](https://github.com/al2o3cr) and [Matthew

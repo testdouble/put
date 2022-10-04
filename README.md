@@ -3,7 +3,9 @@
 Put pairs with
 [Enumerable#sort_by](https://ruby-doc.org/core-3.1.2/Enumerable.html#method-i-sort_by)
 to provide a more expressive, fault-tolerant, and configurable approach to
-sorting Ruby objects with multiple criteria.
+sorting Ruby objects with multiple criteria. [Here's a screencast & short blog 
+post](https://blog.testdouble.com/talks/2022-09-28-a-better-way-to-sort-ruby-objects/)
+explaining why we put out, if you're interested.
 
 ## Put "put" in your Gemfile
 

@@ -48,6 +48,25 @@ class PutTest < Minitest::Test
     assert_includes result.last(2), noah2
   end
 
+  Employee = Struct.new(:name, :role, keyword_init: true)
+
+  def test_put_with_enum
+    employees = [
+      dana = Employee.new(name: "Dana", role: :director),
+      abe = Employee.new(name: "Abe", role: :staff),
+      cy = Employee.new(name: "Cy", role: :staff)
+    ]
+
+    result = employees.sort_by { |employee|
+      [
+        Put.enum(employee.role, order: [:staff, :manager, :director]),
+        Put.asc(employee.name)
+      ]
+    }
+
+    assert_equal [abe, cy, dana], result
+  end
+
   Bot = Struct.new(:model, :age, keyword_init: true)
 
   def test_debug

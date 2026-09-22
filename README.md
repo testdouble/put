@@ -205,6 +205,31 @@ As you might be able to guess, `Put.nils_last` puts the nils last:
 } # => [:every, :counts, nil]
 ```
 
+### Put.enum(value, order:, nils_first: false)
+
+When you're sorting by a discrete attribute — a role, a status, a tier — that
+doesn't have a natural order of its own, `Put.enum` sorts a value by its
+position in a list you provide, instead of you writing a `case`/`when`
+translation table by hand:
+
+```ruby
+[:director, :staff, :manager].sort_by { |role|
+  [Put.enum(role, order: [:staff, :manager, :director])]
+} # => [:staff, :manager, :director]
+```
+
+A value that isn't in `order` sorts after every value that is, rather than
+raising:
+
+```ruby
+[:manager, :contractor, :staff].sort_by { |role|
+  [Put.enum(role, order: [:staff, :manager, :director])]
+} # => [:staff, :manager, :contractor]
+```
+
+Like `Put.asc` and `Put.desc`, `Put.enum` also takes a `nils_first` keyword
+argument (defaulting to `false`) for where `nil` values should sort.
+
 ### Put.debug(sorting_arrays)
 
 If you see "comparison of Array with Array failed" and you don't have any idea

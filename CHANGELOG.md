@@ -1,3 +1,7 @@
+## [Unreleased]
+
+- Add Put.enum
+
 ## [0.2.0] - 2026-09-22
 
 - **[Breaking]** Drop support for Ruby 2.6; require Ruby >= 3.1

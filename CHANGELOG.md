@@ -1,6 +1,6 @@
-## [Unreleased]
+## [0.3.0] - 2026-09-22
 
-- Add Put.enum
+- Add Put.enum [#2](https://github.com/testdouble/put/issues/2)
 
 ## [0.2.0] - 2026-09-22
 

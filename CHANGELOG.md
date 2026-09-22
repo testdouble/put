@@ -1,3 +1,7 @@
+## [0.2.0] - 2026-09-22
+
+- **[Breaking]** Drop support for Ruby 2.6; require Ruby >= 3.1
+
 ## [0.1.0] - 2022-09-22
 
 - Add Put.nils_first, Put.nils_last

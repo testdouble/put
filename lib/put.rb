@@ -6,6 +6,7 @@ require_relative "put/puts_thing/anywhere"
 require_relative "put/puts_thing/first"
 require_relative "put/puts_thing/last"
 require_relative "put/puts_thing/in_order"
+require_relative "put/puts_thing/enum"
 require_relative "put/puts_thing/ascending"
 require_relative "put/puts_thing/descending"
 require_relative "put/puts_thing/nil_order"
@@ -27,6 +28,10 @@ module Put
 
   def self.asc(value, nils_first: false)
     PutsThing::Ascending.new(value, nils_first: nils_first)
+  end
+
+  def self.enum(value, order:, nils_first: false)
+    PutsThing::Enum.new(value, order: order, nils_first: nils_first)
   end
 
   def self.nils_first(value)
